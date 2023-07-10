@@ -1,0 +1,59 @@
+// USER VARIABLES SECTION
+
+$accent: #ea6351 // Accent Color
+$fontsize: 18px // Body Font Size
+$textcolor: #000 // Text Color
+$lineheight: 1.48 // Document Line Height
+$userfont: Circe, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 32px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss'
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furlwoff, $furlttf, $furleot)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furlwoff) format('woff'), url($furlttf) format('truetype'), url($furleot) format('embedded-opentype')
+
+@include font('Circe', normal, 100, '../fonts/CirceThin/Circe-Thin.woff', '../fonts/CirceThin/Circe-Thin.ttf', '../fonts/CirceThin/Circe-Thin.eot')
+@include font('Circe', normal, 200, '../fonts/CirceExtraLight/Circe-ExtraLight.woff', '../fonts/CirceExtraLight/Circe-ExtraLight.ttf', '../fonts/CirceExtraLight/Circe-ExtraLight.eot')
+@include font('Circe', normal, 300, '../fonts/CirceLight/Circe-Light.woff', '../fonts/CirceLight/Circe-Light.ttf', '../fonts/CirceLight/Circe-Light.eot')
+@include font('Circe', normal, 400, '../fonts/CirceRegular/Circe-Regular.woff', '../fonts/CirceRegular/Circe-Regular.ttf', '../fonts/CirceRegular/Circe-Regular.eot')
+@include font('Circe', normal, 700, '../fonts/CirceBold/Circe-Bold.woff', '../fonts/CirceBold/Circe-Bold.ttf', '../fonts/CirceBold/Circe-Bold.eot')
+@include font('Circe', normal, 800, '../fonts/CirceExtraBold/Circe-ExtraBold.woff', '../fonts/CirceExtraBold/Circe-ExtraBold.ttf', '../fonts/CirceExtraBold/Circe-ExtraBold.eot')
+
+// GENERAL CSS SETTINGS
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	@include media-breakpoint-down(md)
+		font-size: 16px

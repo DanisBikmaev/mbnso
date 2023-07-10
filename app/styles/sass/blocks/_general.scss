@@ -1,0 +1,94 @@
+// GENERAL PROJECT STYLES
+
+.header {
+  .container {
+    padding: 0 24px;
+    max-width: 1228px;
+    @include media-breakpoint-down(lg) {
+      padding: 0 16px;
+    }
+  }
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  &:hover,
+  &:focus,
+  &:active {
+    color: #e74b36;
+    text-decoration: none;
+  }
+}
+
+.dropdown-menu {
+  border: 1px solid #cd9b6a;
+  border-radius: 0;
+  padding: 0;
+  &.sidebar {
+    width: 225px;
+    border-radius: 0;
+    margin: -1px 0 0;
+    padding: 0;
+    left: 50%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  }
+  .side-menu {
+    > li {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      &.active {
+        a {
+          color: #e74b36;
+          font-weight: 700;
+        }
+      }
+      &:last-child {
+        a {
+          border-bottom: 0;
+        }
+      }
+      > a {
+        display: block;
+        padding: 15px 17px 15px 17px;
+        font-size: 15px;
+        border-bottom: 1px solid #e9dacb;
+        line-height: 20px;
+        i {
+          position: relative;
+          top: -1px;
+          margin: 0px 10px 0px 0px;
+        }
+      }
+    }
+  }
+}
+
+.col-md-12 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.btn {
+  line-height: 1.428571429;
+}
+
+.swiper {
+  position: relative;
+}
+
+p {
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 14px;
+  }
+}
+
+footer {
+  margin-top: 0;
+}
+
+.main {
+  padding: 0;
+}

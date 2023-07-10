@@ -1,0 +1,128 @@
+.header {
+  &__desktop {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__mobile {
+    display: none;
+    @include media-breakpoint-down(lg) {
+      display: block;
+    }
+  }
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+  }
+}
+
+.header-logos {
+  display: flex;
+  flex-direction: row;
+  &__item {
+    display: block;
+    margin-right: 24px;
+    &:last-child {
+      margin-right: 0;
+    }
+    img {
+      max-width: 100%;
+    }
+    &--mbnso {
+      width: 142px;
+    }
+    &--msp {
+      width: 92px;
+    }
+    &--minec {
+      width: 75px;
+    }
+  }
+}
+
+.header-info {
+  display: flex;
+  flex-direction: row;
+  &__left {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #dbdbdb;
+    padding: 20px 24px;
+    text-align: right;
+  }
+  &__email {
+    color: #1c1c1c;
+    margin-bottom: 2px;
+  }
+  &__address {
+    color: #8e8e8e;
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+    text-align: left;
+  }
+  &__phone {
+    font-size: 20px;
+    line-height: 29px;
+  }
+  &__time {
+    color: #8e8e8e;
+  }
+}
+
+.header-mega-menu {
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    color: #000;
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      color: #e74b36;
+      svg {
+        fill: #e74b36;
+        stroke: #e74b36;
+      }
+      .dropdown-menu {
+        display: block;
+        opacity: 1;
+        top: 37px;
+        margin-left: -180px;
+      }
+    }
+    svg {
+      fill: #1c1c1c;
+      stroke: #1c1c1c;
+      transition: all 0.25s ease-in-out;
+    }
+    &--search {
+    }
+    &--print {
+    }
+    &--special {
+    }
+    &--login {
+    }
+  }
+}
