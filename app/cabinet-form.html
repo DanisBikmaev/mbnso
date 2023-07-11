@@ -1,0 +1,75 @@
+<!--#set var="title" value="Центр развития и поддержки предпринимательства в НСО | Центр Мой Бизнес" -->
+<!--#include virtual="/parts/header.html" -->
+<main class="main side_left">
+  <section class="page-top maxwidth-theme ">
+    <div class="col-md-12">
+      <!--#include virtual="/parts/breadcrumb.html" -->
+      <div class="page-top-main hidden-md hidden-lg">
+        <div class="print-link"><i class="svg svg-print"></i></div>
+        <h1 id="pagetitle">Новости</h1>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="row">
+      <div class="maxwidth-theme">
+        <div class="col-md-12 col-sm-12 col-xs-12 content-md">
+          <div class="right_block narrow_Y">
+            <div class="row">
+              <div class="col-sm-6">
+                <form action="" method="POST" class="form" id="add-company" novalidate="novalidate">
+                  <input type="hidden" name="sessid" id="sessid" value="d2544b0a60d0929261cab732917db4c2">
+                  <div class="form-group animated-labels bg-color form-inn">
+                    <label for="LABEL_INN">
+                      ИНН компании/ИП <span class="required-star">*</span>
+                    </label>
+                    <div class="input">
+                      <input id="LABEL_INN" class="form-control bg-color" type="text" name="INN" value="" required=""
+                        aria-required="true">
+                    </div>
+                  </div>
+                  <div class="form-group animated-labels bg-color form-name">
+                    <label for="LABEL_NAME">
+                      Наименование <span class="required-star">*</span>
+                    </label>
+                    <div class="input">
+                      <input id="LABEL_NAME" class="form-control bg-color" type="text" name="NAME" value="" required=""
+                        aria-required="true">
+                    </div>
+                  </div>
+                  <div class="form-group animated-labels bg-color form-employeers">
+                    <div class="input">
+                      <div class="select-drop">
+                        <div class="form-control">
+                          <label for="ui-id-1-button">
+                            Категория <span class="required-star">*</span>
+                          </label>
+                          <select class="reg-selector" name="NUMBERS_EMPLOYEERS" id="NUMBERS_EMPLOYEERS"
+                            style="display: none;">
+                            <option value="default" disabled="" selected=""></option>
+                            <option value="37">микропредприятие (до 15 человек)</option>
+                            <option value="38">малое предприятие (до 100 человек)</option>
+                            <option value="39">среднее предприятие (до 250 человек)</option>
+                            <option value="40">самозанятый</option>
+
+                          </select><span tabindex="0" id="NUMBERS_EMPLOYEERS-button" role="combobox"
+                            aria-expanded="false" aria-autocomplete="list" aria-owns="NUMBERS_EMPLOYEERS-menu"
+                            aria-haspopup="true"
+                            class="ui-selectmenu-button ui-selectmenu-button-closed ui-corner-all ui-button ui-widget"><span
+                              class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span><span
+                              class="ui-selectmenu-text">&nbsp;</span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="submit" name="ADD_COMPANY" class="btn btn-default" value="Добавить компанию">
+                </form>
+              </div>
+            </div>
+          </div>
+          <!--#include virtual="/parts/cabinet/cabinet-sidebar.html" -->
+        </div>
+      </div>
+    </div>
+</main>
+<!--#include virtual="/parts/footer.html" -->
