@@ -1682,7 +1682,7 @@ div.container.BIG_BANNER_INDEX {
   border-color: #c39367;
 }
 .input.custom input[type="checkbox"]:checked + label::after {
-  background-image: url(../images/svg/allcorp2a.svg);
+  background-image: url(../images/dist/allcorp2a.svg);
   background-position: -161px -185px;
   background-repeat: no-repeat;
   box-shadow: none;
@@ -2615,22 +2615,22 @@ footer .footer-logo img {
 .rct-filter .s_2218 .bx-filter-select-text::before {
     width: 16px;
     height: 16px;
-    background-image: url(../images/svg/Filter_for_whom.svg);
+    background-image: url(../images/dist/Filter_for_whom.svg);
 }
 .rct-filter .s_2219 .bx-filter-select-text::before {
     width: 16px;
     height: 16px;
-    background-image: url(../images/svg/Filter_format.svg);
+    background-image: url(../images/dist/Filter_format.svg);
 }
 .rct-filter .s_2220 .bx-filter-select-text::before {
     width: 16px;
     height: 16px;
-    background-image: url(../images/svg/Filter_subject.svg);
+    background-image: url(../images/dist/Filter_subject.svg);
 }
 .rct-filter .s_2217 .bx-filter-select-text::before {
     width: 14px;
     height: 16px;
-    background-image: url(../images/svg/Filter_calendar.svg);
+    background-image: url(../images/dist/Filter_calendar.svg);
 }
 .rct-filter .bx-filter-select-container.activeshow {
     border-bottom-left-radius: 0;
@@ -3460,7 +3460,7 @@ blockquote::before {
   content: "";
   top: 22px;
   left: 30px;
-  background-image: url("../images/svg/blockquote.svg");
+  background-image: url("../images/dist/blockquote.svg");
   background-size: cover;
   width: 31px;
   height: 23px;
@@ -3514,7 +3514,7 @@ blockquote.danger:before {
   width: 51px;
   height: 51px;
   background: none;
-  background-image: url(../images/svg/blockquote-danger.svg);
+  background-image: url(../images/dist/blockquote-danger.svg);
   background-size: cover;
 }
 blockquote.danger * {
@@ -3683,13 +3683,13 @@ table.table-requisites td:first-child {
   top: 18px;
   width: 14px;
   height: 12px;
-  background-image: url(../images/svg/menu-arrow.svg);
+  background-image: url(../images/dist/menu-arrow.svg);
   background-size: cover;
   font-size: 0;
 }
 .side-menu .submenu li.active a::before {
   transform: rotate(90deg);
-  background-image: url(../images/svg/menu-arrow-active.svg);
+  background-image: url(../images/dist/menu-arrow-active.svg);
 }
 /* .side-menu .submenu li a:hover,
 .side-menu .submenu li a:focus,
@@ -3933,7 +3933,7 @@ table.table-requisites td:first-child {
   left: 0;
   width: 42px;
   height: 44px;
-  background: url(../images/svg/docs_types.svg) 0px 0px no-repeat;
+  background: url(../images/dist/docs_types.svg) 0px 0px no-repeat;
   background-size: cover;
   background-position-y: -612px;
 }
@@ -6563,4 +6563,17 @@ form a {
 
 .nav.nav-list.side-menu {
   display: block;
+}
+
+table.table-striped tr:nth-child(odd) td {
+  background: #f6f6f6;
+  --bs-table-bg-type: transparent;
+}
+
+.item-accordion-wrapper .accordion-head.accordion-open .fa:before {
+    content: "\f107";
+}
+
+.list-type-block.item-views .item .previewtext {
+  line-height: 20px;
 }

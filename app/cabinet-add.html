@@ -1,0 +1,126 @@
+<!--#set var="title" value="Центр развития и поддержки предпринимательства в НСО | Центр Мой Бизнес" -->
+<!--#include virtual="/parts/header.html" -->
+<main class="main side_left">
+  <div class="body  hover_blink">
+    <div class="body_media"></div>
+    <div role="main" class="main banner-auto" style="padding-bottom: 301px;">
+      <section class="page-top maxwidth-theme ">
+        <div class="col-md-12">
+          <!--#include virtual="/parts/breadcrumb.html" -->
+          <div class="page-top-main hidden-md hidden-lg">
+            <h1 id="pagetitle">Добавить компанию</h1>
+          </div>
+        </div>
+      </section>
+      <div class="container cabinte-page ">
+        <div class="row">
+          <div class="maxwidth-theme">
+            <div class="col-md-12 col-sm-12 col-xs-12 content-md">
+              <div class="right_block narrow_Y  ">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <form action="" method="POST" class="form" id="add-company">
+                      <input type="hidden" name="sessid" id="sessid" value="800a8c4601577dead01f82bc0369e18f" />
+                      <div class="form-group animated-labels bg-color form-inn">
+                        <label for="LABEL_INN">
+                          ИНН компании/ИП <span class="required-star">*</span>
+                        </label>
+                        <div class="input">
+                          <input id="LABEL_INN" class="form-control bg-color" type="text" name="INN" value="" required>
+                        </div>
+                      </div>
+                      <div class="form-group animated-labels bg-color form-name">
+                        <label for="LABEL_NAME">
+                          Наименование <span class="required-star">*</span>
+                        </label>
+                        <div class="input">
+                          <input id="LABEL_NAME" class="form-control bg-color" type="text" name="NAME" value=""
+                            required>
+                        </div>
+                      </div>
+                      <div class="form-group animated-labels bg-color form-employeers">
+                        <div class="input">
+                          <div class="select-drop">
+                            <div class="form-control">
+                              <label for="ui-id-1-button">
+                                Категория <span class="required-star">*</span>
+                              </label>
+                              <select class="reg-selector" name="NUMBERS_EMPLOYEERS" id="NUMBERS_EMPLOYEERS">
+                                <option value="default" disabled selected></option>
+                                <option value="37">микропредприятие (до 15 человек)</option>
+                                <option value="38">малое предприятие (до 100 человек)</option>
+                                <option value="39">среднее предприятие (до 250 человек)</option>
+                                <option value="40">самозанятый</option>
+                                <span errorfor="NUMBERS_EMPLOYEERS"></span>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="submit" name="ADD_COMPANY" class="btn btn-default" value="Добавить компанию">
+                    </form>
+                  </div>
+                </div>
+                <script>
+                  $(document).ready(function () {
+                    $('form#add-company').validate({
+                      rules: {
+                        "INN": {
+                          minlength: 10,
+                          maxlength: 12,
+                          lengthNotEqual: 11,
+                          digits: true
+                        },
+                        "NAME": {
+                          required: false
+                        }
+                      },
+                      messages: {
+                        'INN': "Должно быть 10 или 12 символов!"
+                      },
+                    });
+                  });
+                  $('#LABEL_INN').change(function () {
+                    var inn = $(this).val();
+                    if (inn) {
+                      var request = BX.ajax.runComponentAction('itconstruct:ajax.find.company', 'findCompany', {
+                        mode: 'class',
+                        data: {
+                          str: inn
+                        }
+                      });
+                      request.then(function (response) {
+                        if (response.status === 'success') {
+                          if (response.data) {
+                            if (response.data.UF_INN) {
+                              $('#LABEL_INN').val(response.data.UF_INN);
+                              $('.form-inn').addClass('input-filed');
+                              $('#LABEL_INN').trigger('keyup');
+                              $('#LABEL_INN').trigger('click');
+                            }
+                            if (response.data.UF_COMPANY_NAME) {
+                              $('#LABEL_NAME').val(response.data.UF_COMPANY_NAME);
+                              $('.form-name').addClass('input-filed');
+                            }
+                            if (response.data.UF_NUMBER_EMPLOYEES_VALUE) {
+                              $('#NUMBERS_EMPLOYEERS option[value="default"]').prop('selected', false);
+                              $('#NUMBERS_EMPLOYEERS option[value=' + response.data.UF_NUMBER_EMPLOYEES_VALUE + ']').prop('selected', true);
+                              $('#NUMBERS_EMPLOYEERS').selectmenu('refresh');
+                              $('.form-employeers').addClass('input-filed');
+                            }
+                          }
+                        }
+                      });
+                    }
+                  });
+                </script>
+              </div>
+              <!--#include virtual="/parts/cabinet/cabinet-sidebar.html" -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!--#include virtual="/parts/footer.html" -->
