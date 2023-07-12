@@ -74,90 +74,90 @@ jQuery.validator.addMethod("lengthNotEqual", function(value, element, param) {
 });
 
 
-$(document).ready(function(){
-  $('.scrollbar-outer').scrollbar();
-  $('#registraion-page-form #input_PERSONAL_BIRTHDAY').inputmask("99.99.9999",{ showMaskOnHover: false,});
-  $('.main-form #PERSONAL_BIRTHDAY').inputmask("99.99.9999",{ showMaskOnHover: false,});
+// $(document).ready(function(){
+//   $('.scrollbar-outer').scrollbar();
+//   $('#registraion-page-form #input_PERSONAL_BIRTHDAY').inputmask("99.99.9999",{ showMaskOnHover: false,});
+//   $('.main-form #PERSONAL_BIRTHDAY').inputmask("99.99.9999",{ showMaskOnHover: false,});
 
-  $('.select-drop__label').on('click', function(){
-      $(".ui-selectmenu-text").trigger('click');
-  });
+//   $('.select-drop__label').on('click', function(){
+//       $(".ui-selectmenu-text").trigger('click');
+//   });
 
-  $( ".reg-selector" ).selectmenu().on( "selectmenuselect", function( event, ui ) {
-      if (ui.item.index === 0) {
-          return;
-      } 
-      $('.select-drop.error').css('border', 'none');
-      $('.select-drop.error label').remove();
-      $(this).closest(".animated-labels").addClass("input-filed");
-  });
-  setTimeout(function () {
-      $(".animated-labels input,.animated-labels textarea").trigger('focusout');
-  }, 200);
+//   $( ".reg-selector" ).selectmenu().on( "selectmenuselect", function( event, ui ) {
+//       if (ui.item.index === 0) {
+//           return;
+//       } 
+//       $('.select-drop.error').css('border', 'none');
+//       $('.select-drop.error label').remove();
+//       $(this).closest(".animated-labels").addClass("input-filed");
+//   });
+//   setTimeout(function () {
+//       $(".animated-labels input,.animated-labels textarea").trigger('focusout');
+//   }, 200);
 
-  $(document).off('click', '.js_send-sms-again');
-  $(document).on('click', '.js_send-sms-again', function(event){
-      event.preventDefault();
-  });
-  $(document).off('click', '.js_send-sms-again.active');
-  $(document).on('click', '.js_send-sms-again.active', function(event){
-      var sendAgainButton = $(this);
-      var smsType = sendAgainButton.data('type');
-      var errorBlock = $(this).closest('.form-group').find('.tooltip');
-      var phoneInput = $(this).closest('form').find('[name*=PHONE]');
-      var request = BX.ajax.runComponentAction('itc:ajax.sms.controller', 'trySendSms', {
-          mode:'class',
-          data: {
-              phone: phoneInput.val(),
-              smsType: smsType,
-              forceSend: true
-          }
-      }).then (function (response) {
-          var text = '';
-          var decodedData = JSON.parse(response.data);
-          if (decodedData.SUCCESS) {
-              text += decodedData.TEXT_MESSAGE;
+//   $(document).off('click', '.js_send-sms-again');
+//   $(document).on('click', '.js_send-sms-again', function(event){
+//       event.preventDefault();
+//   });
+//   $(document).off('click', '.js_send-sms-again.active');
+//   $(document).on('click', '.js_send-sms-again.active', function(event){
+//       var sendAgainButton = $(this);
+//       var smsType = sendAgainButton.data('type');
+//       var errorBlock = $(this).closest('.form-group').find('.tooltip');
+//       var phoneInput = $(this).closest('form').find('[name*=PHONE]');
+//       var request = BX.ajax.runComponentAction('itc:ajax.sms.controller', 'trySendSms', {
+//           mode:'class',
+//           data: {
+//               phone: phoneInput.val(),
+//               smsType: smsType,
+//               forceSend: true
+//           }
+//       }).then (function (response) {
+//           var text = '';
+//           var decodedData = JSON.parse(response.data);
+//           if (decodedData.SUCCESS) {
+//               text += decodedData.TEXT_MESSAGE;
 
-              if (decodedData.HAS_ATTEMPTS) {
-                  sendAgainButton.removeClass('active').addClass('inactive');
-                  sendAgainButton = $('.js_send-sms-again.inactive');
-                  var secondsInTimer = Number(sendAgainButton.data('seconds'));
-                  if (!secondsInTimer) {
-                      secondsInTimer = 60;
-                  }
-                  var timeStamp = (new Date()).getTime() + secondsInTimer*1000;
+//               if (decodedData.HAS_ATTEMPTS) {
+//                   sendAgainButton.removeClass('active').addClass('inactive');
+//                   sendAgainButton = $('.js_send-sms-again.inactive');
+//                   var secondsInTimer = Number(sendAgainButton.data('seconds'));
+//                   if (!secondsInTimer) {
+//                       secondsInTimer = 60;
+//                   }
+//                   var timeStamp = (new Date()).getTime() + secondsInTimer*1000;
 
-                  sendAgainButton.countdown({
-                      timestamp   : timeStamp,
-                      callback    : function(minutes, seconds){
-                          if (minutes <= 0 && seconds <= 0) {
-                              if (sendAgainButton.hasClass('inactive')) {
-                                  sendAgainButton.removeClass('inactive').addClass('active');
-                                  sendAgainButton.find('.countdownHolder').remove();
-                              }
-                          }
-                      }
-                  });
-              } else {
-                  sendAgainButton.hide();
-              }
-          } else {
-              if (!decodedData.HAS_ATTEMPTS) {
-                  sendAgainButton.hide();
-              }
-              for (var message in decodedData.ERRORS) {
-                  text += decodedData.ERRORS[message]+'<br>';
-              }
-          }
-          errorBlock.html(text);
-          errorBlock[0].scrollIntoView({block: "center", behavior: "smooth"});
-      }, function (response) {
-          var text = 'Что-то пошло не так, повторите попытку позднее';
-          errorBlock.html(text);
-          errorBlock[0].scrollIntoView({block: "center", behavior: "smooth"});
-      });
-  });
-});
+//                   sendAgainButton.countdown({
+//                       timestamp   : timeStamp,
+//                       callback    : function(minutes, seconds){
+//                           if (minutes <= 0 && seconds <= 0) {
+//                               if (sendAgainButton.hasClass('inactive')) {
+//                                   sendAgainButton.removeClass('inactive').addClass('active');
+//                                   sendAgainButton.find('.countdownHolder').remove();
+//                               }
+//                           }
+//                       }
+//                   });
+//               } else {
+//                   sendAgainButton.hide();
+//               }
+//           } else {
+//               if (!decodedData.HAS_ATTEMPTS) {
+//                   sendAgainButton.hide();
+//               }
+//               for (var message in decodedData.ERRORS) {
+//                   text += decodedData.ERRORS[message]+'<br>';
+//               }
+//           }
+//           errorBlock.html(text);
+//           errorBlock[0].scrollIntoView({block: "center", behavior: "smooth"});
+//       }, function (response) {
+//           var text = 'Что-то пошло не так, повторите попытку позднее';
+//           errorBlock.html(text);
+//           errorBlock[0].scrollIntoView({block: "center", behavior: "smooth"});
+//       });
+//   });
+// });
 
 /****************************************************************************/
 /*                                                                          */
