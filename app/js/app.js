@@ -7,3 +7,4 @@ import "~/app/libs/jquery-ui.min.js";
 import "~/app/libs/general.js";
 import "~/app/libs/custom.js";
 import "~/app/libs/newsdetail-services-script.js";
+import "~/app/libs/app/libs/bootstrap.min.js";
