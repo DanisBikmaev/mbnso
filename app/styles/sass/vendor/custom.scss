@@ -6573,3 +6573,15 @@ table.table-striped tr:nth-child(odd) td {
 .item-accordion-wrapper .accordion-head.accordion-open .fa:before {
     content: "\f107";
 }
+
+.list-type-block.item-views .item .previewtext {
+  line-height: 20px;
+}
+
+.body {
+  margin-bottom: 0 !important;
+}
+
+.footer-custom {
+  margin-top: 0 !important;
+}
