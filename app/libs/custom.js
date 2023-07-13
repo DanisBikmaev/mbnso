@@ -8,8 +8,8 @@ function cloneButtonWithMetrikaParams(selector, additionalClass, metrikaEvent) {
   $(selector).after(element[0]);
   $(selector).hide();
   $('.'+additionalClass).on('click', function() {
-      dataLayer.push({'event': metrikaEvent});
-      ym(56290675, 'reachGoal', metrikaEvent);
+    //   dataLayer.push({'event': metrikaEvent});
+    //   ym(56290675, 'reachGoal', metrikaEvent);
       $(selector).trigger('click');
   });
 }
@@ -83,17 +83,17 @@ jQuery.validator.addMethod("lengthNotEqual", function(value, element, param) {
 //       $(".ui-selectmenu-text").trigger('click');
 //   });
 
-//   $( ".reg-selector" ).selectmenu().on( "selectmenuselect", function( event, ui ) {
-//       if (ui.item.index === 0) {
-//           return;
-//       } 
-//       $('.select-drop.error').css('border', 'none');
-//       $('.select-drop.error label').remove();
-//       $(this).closest(".animated-labels").addClass("input-filed");
-//   });
-//   setTimeout(function () {
-//       $(".animated-labels input,.animated-labels textarea").trigger('focusout');
-//   }, 200);
+  $( ".reg-selector" ).selectmenu().on( "selectmenuselect", function( event, ui ) {
+      if (ui.item.index === 0) {
+          return;
+      } 
+      $('.select-drop.error').css('border', 'none');
+      $('.select-drop.error label').remove();
+      $(this).closest(".animated-labels").addClass("input-filed");
+  });
+  setTimeout(function () {
+      $(".animated-labels input,.animated-labels textarea").trigger('focusout');
+  }, 200);
 
 //   $(document).off('click', '.js_send-sms-again');
 //   $(document).on('click', '.js_send-sms-again', function(event){
