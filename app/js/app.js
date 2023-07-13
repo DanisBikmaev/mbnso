@@ -6,6 +6,7 @@ import "~/app/libs/jquery.cookie.js";
 import "~/app/libs/jquery.fancybox.js";
 import "~/app/libs/jquery.alphanumeric.min.js";
 import "~/app/libs/jquery.appear.js";
+import "~/app/libs/jqModal.min.js";
 import "~/app/libs/swiper.min.js";
 import "~/app/libs/odometr.min.js";
 import "~/app/libs/jquery-ui.js";
