@@ -405,8 +405,8 @@ span.zoom {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
-  background: rgba(34, 34, 34, 0.7)
-    url(/bitrix/templates/aspro-allcorp2/images/svg/Fullsize.svg) center
+  background: #e74b36
+    url(images/dist/Fullsize.svg) center
     no-repeat;
 }
 span.zoom i {
@@ -10653,7 +10653,7 @@ body .show-nav-controls .flex-control-nav {
   opacity: 0;
   margin: 0px;
   border-radius: 4px;
-  background-image: url(images/svg/Fullsize.svg);
+  background-image: url(../../../images/dist/Fullsize.svg);
   background-position: center;
   background-repeat: no-repeat;
 }
