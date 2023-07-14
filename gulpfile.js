@@ -43,7 +43,7 @@ function browsersync() {
 function scripts() {
   return src(['app/js/*.js', '!app/js/*.min.js'])
 		.pipe(webpackStream({
-			mode: 'development',
+			mode: 'production',
 			performance: { hints: false },
 			plugins: [
 				new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery' }), // jQuery (npm i jquery)
