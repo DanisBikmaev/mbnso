@@ -6585,3 +6585,7 @@ table.table-striped tr:nth-child(odd) td {
 .footer-custom {
   margin-top: 0 !important;
 }
+
+.news-rct-detail__content ~ .row {
+  display: block;
+}

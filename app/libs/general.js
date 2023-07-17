@@ -3463,7 +3463,11 @@ $(document).ready(function () {
   }
 
   $(".animate-load").on("click", function () {
-    $(this).parent().addClass("loadings");
+    var ths = $(this);
+    ths.parent().addClass("loadings");
+    setTimeout(function() {
+      ths.parent().removeClass("loadings");
+    }, 250)
   });
 
   // BX.addCustomEvent("onCompleteAction", function (eventdata, _this) {

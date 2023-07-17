@@ -1,3 +1,4 @@
 node_modules
 dist
 app.min.js
+app.min.css
